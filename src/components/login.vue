@@ -1,0 +1,139 @@
+<template>
+   <div id="logincontainer">
+        <form name='form-login'>
+            <span class="fontawesome-user"></span>
+            <input type="text" name="nameField" placeholder="Name" />
+            <span class="fa fa-envelope"></span>
+            <input type="email" email name="emailField" id="user" laceholder="Email" />
+            <div>
+                <span class="emailError">Email is invalid</span>
+            </div>
+            <button class="BtnSubmit">Log in</button>
+         </form>
+    </div>
+</template>
+
+
+<script>
+export default {
+  name: 'Login',
+  data () {
+    return {
+      msg: 'No message'
+    }
+  }
+}
+</script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped>
+@charset "utf-8";
+@import url(http://weloveiconfonts.com/api/?family=fontawesome);
+
+[class*="fontawesome-"]:before {
+    font-family: 'FontAwesome', sans-serif;
+}
+
+input {
+    border: none;
+    font-family: 'Open Sans', Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5em;
+    padding: 0;
+    -webkit-appearance: none;
+}
+
+p {
+    line-height: 1.5em;
+}
+
+after {
+    clear: both;
+}
+
+#logincontainer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -150px 0 0 -150px;
+    width: 330px !important;
+    height: 300px !important;
+}
+
+#logincontainer form {
+    margin: auto;
+    padding: 22px 22px 22px 22px;
+    width: 100%;
+    border-radius: 5px;
+    background: #282e33;
+    border-top: 3px solid #434a52;
+    border-bottom: 3px solid #434a52;
+}
+
+#logincontainer form span {
+    background-color: #363b41;
+    border-radius: 3px 0px 0px 3px;
+    border-right: 3px solid #434a52;
+    color: #606468;
+    display: block;
+    float: left;
+    line-height: 50px;
+    text-align: center;
+    width: 50px;
+    height: 50px;
+}
+
+#logincontainer form input[type="email"] {
+    background-color: #3b4148;
+    border-radius: 0px 3px 3px 0px;
+    color: #a9a9a9;
+    margin-bottom: 1em;
+    padding: 0 16px;
+    width: 235px;
+    height: 50px;
+}
+
+#logincontainer form input[type="text"] {
+    background-color: #3b4148;
+    border-radius: 0px 3px 3px 0px;
+    color: #a9a9a9;
+    margin-bottom: 1em;
+    padding: 0 16px;
+    width: 235px;
+    height: 50px;
+}
+
+
+#logincontainer form input[type="password"] {
+    background-color: #3b4148;
+    border-radius: 0px 3px 3px 0px;
+    color: #a9a9a9;
+    margin-bottom: 1em;
+    padding: 0 16px;
+    width: 235px;
+    height: 50px;
+}
+
+.BtnSubmit {
+    background: #b5cd60;
+    border: 0;
+    width: 100%;
+    height: 40px;
+    border-radius: 3px;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+    text-align: center;
+}
+
+.BtnSubmit:hover {
+    background: #16aa56;
+}
+
+.emailError {
+    width: 70% !important;
+    color: red !important;
+    margin-bottom: 1em;
+    height: 50px;
+}
+</style>

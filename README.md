@@ -1,6 +1,6 @@
 # onderzoekvue
 
-> onderzoeksopdracht mbv vuejs
+> A Vue.js project
 
 ## Build Setup
 
