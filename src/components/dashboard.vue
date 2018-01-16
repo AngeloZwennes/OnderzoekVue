@@ -3,7 +3,7 @@
          <div class="navbar">
              <h2 id="logo dashboard">FamilyCollab</h2>
              <div class="icons">
-                 <a class="fa fa-cog" id="settings" @click="logOut()"></a>
+                 <a class="fa fa-cog" id="settings" @click="goToSettings()"></a>
                  <a class="fa fa-user" id="user"></a>
              </div>
          </div>
@@ -60,6 +60,9 @@ export default {
     Photo
   },
   methods: {
+    goToSettings: function() {
+      this.$router.push('/settings');
+    },
     logOut: function() {
       localStorage.removeItem('localUser');
       localStorage.removeItem('dbUser');
