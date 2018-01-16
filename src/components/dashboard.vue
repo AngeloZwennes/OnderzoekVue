@@ -3,7 +3,7 @@
          <div class="navbar">
              <h2 id="logo dashboard">FamilyCollab</h2>
              <div class="icons">
-                 <a class="fa fa-cog" id="settings"></a>
+                 <a class="fa fa-cog" id="settings" @click="logOut()"></a>
                  <a class="fa fa-user" id="user"></a>
              </div>
          </div>
@@ -29,9 +29,7 @@
                              </div>
                          </div>
                          <div class="col-sm-6" >
-                             <div class="whitebox bottomrow">
-                                 <Task></Task>
-                             </div>
+                             <div class="whitebox bottomrow">Task</div>
                         </div>
                      </div>
                 </div>
@@ -39,7 +37,7 @@
                      <div class="row">
                          <div class="col-sm-12">
                              <div class="whitebox largebox">
-                                 <Calendar></Calendar>
+                                 Calander
                              </div>
                          </div>
                      </div>
@@ -50,8 +48,8 @@
 </template>
 
 <script>
-    import Task from './task/task.vue'
-    import Calendar from './calendar/calendar.vue'
+  import Task from './task/task.vue'
+  import Calendar from './calendar/calendar.vue'
 
 export default {
   name: 'Dashboard',
@@ -63,6 +61,13 @@ export default {
   components: {
     Calendar,
     Task
+  },
+  methods: {
+    logOut: function() {
+      localStorage.removeItem('user');
+      this.$router.push('/');
+      console.log('PUSHED');
+    }
   }
 }
 </script>
