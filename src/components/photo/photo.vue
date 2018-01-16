@@ -32,7 +32,6 @@ export default {
         fetchData: function () {
             this.$http.get('http://stefanbode.nl/api/photo/read.php').then(response => {
                 this.photoList = response.data.records;
-                console.log(this.photoList);
              })
         }
     },
