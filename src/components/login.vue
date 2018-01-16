@@ -1,14 +1,11 @@
 <template>
-   <div id="logincontainer">
+       <div id="logincontainer">
         <form name='form-login'>
             <span class="fontawesome-user"></span>
-            <input type="text" name="nameField" placeholder="Name" />
+            <input v-model="user.name" type="text" name="nameField" placeholder="Name" />
             <span class="fa fa-envelope"></span>
-            <input type="email" email name="emailField" id="user" laceholder="Email" />
-            <div>
-                <span class="emailError">Email is invalid</span>
-            </div>
-            <button class="BtnSubmit">Log in</button>
+            <input v-model="user.email" type="email" email name="emailField" id="user" placeholder="Email" />
+            <button class="BtnSubmit" v-on:click.self.prevent="login()">Log in</button>
          </form>
     </div>
 </template>
@@ -19,8 +16,43 @@ export default {
   name: 'Login',
   data () {
     return {
-      msg: 'No message'
+      user: {
+        name: '',
+        email: ''
+      },
+      msg: 'No message',
     }
+  },
+  methods: {
+    openDashboard: function() {
+      this.$router.push('/dashboard');
+    },
+    login: function() {
+      if(this.user.name != "" && this.user.email != "") {
+        localStorage.setItem('user',JSON.stringify(this.user));
+        this.openDashboard();
+      } else {
+        //velden zijn leeg
+      }
+      /*if(this.user.name.length >= 0 && this.user.email.length >= 0) {
+        localStorage.setItem('user',JSON.stringify(this.user));
+        this.openDashboard();
+      }*/
+    },
+    checkExistingUser: function() {
+      if(localStorage.getItem('user') === null) {
+        console.log('USER IS NULL');
+      } else {
+        let localUser = JSON.parse(localStorage.getItem('user'));
+        console.log(localUser);
+        this.user.name = localUser.name;
+        this.user.email = localUser.email;
+        this.openDashboard();
+      }
+    }
+  },
+  beforeMount(){
+    this.checkExistingUser();
   }
 }
 </script>
