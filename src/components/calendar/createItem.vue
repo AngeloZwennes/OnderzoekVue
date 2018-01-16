@@ -15,7 +15,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <from id="create-item-form">
+                        <form id="create-item-form">
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="form-group">
@@ -48,10 +48,10 @@
                                 </div>
                             </div>
                         </div>
-                    </from>
+                    </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" for="create-item-form" class="btn btn-primary" data-dismiss="modal">Save changes</button>
+                        <button type="submit" for="create-item-form" class="btn btn-primary" v-on:click="save" data-dismiss="modal">Save changes</button>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     </div>
                 </div>
@@ -72,11 +72,11 @@
         },
         methods: {
             save: function () {
+                console.log('homo')
                 console.log(this.startDate)
                 console.log(this.endDate)
                 console.log(this.title)
                 console.log(this.description)
-                console.log(this.UserId)
                 /*
                     this.$http.get('http://stefanbode.nl/api/task/read.php').then(response => {
                         console.log(this.taskList);
@@ -85,7 +85,8 @@
         },
         created: function () {
             this.title = '',
-            this.description = ''
+            this.description = '',
+            this.UserId = JSON.parse(localStorage.getItem('user')).id
         },
 
     }
