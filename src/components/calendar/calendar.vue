@@ -23,10 +23,10 @@
         </div>
         <div class="row">
             <div class="col-md-6">
-                    <div class="form-check">
-                            <input type="checkbox" class="form-check-input" v-on:click='getCalendarItemsForDate' v-model="familyAgenda" id="family_agende">
-                            <label class="form-check-label" for="family_agende">Show family calendar</label>
-                          </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" v-on:click='getCalendarItemsForDate' v-model="familyAgenda" id="family_agende">
+                    <label class="form-check-label" for="family_agende">Show family calendar</label>
+                </div>
             </div>
             <div class="col-md-6">
                 <CreateCalendarItem></CreateCalendarItem>
@@ -80,24 +80,25 @@
                 this.getCalendarItemsForDate()
             },
             getCalendarItemsForDate: function () {
-                if(this.familyAgenda){
+                if (this.familyAgenda) {
                     this.$http.get(
-                    'https://stefanbode.nl/api/agenda/read_by_startdate.php?' +
-                    'user_id=' + this.userId +
-                    '&start_date=' + this.date.getFullYear() + '-' + this.date.getMonth() + 1 + '-' + this.date.getDate()
-                ).then(response => {
-                    this.itemsForDate = response.data.records
-                })
-                }else{
+                        '//stefanbode.nl/api/agenda/read_by_familydate.php?' +
+                        'family_id=' + this.userId +
+                        '&start_date=' + this.date.getFullYear() + '-' + this.date.getMonth() + 1 + '-' + this.date.getDate()
+                    ).then(response => {
+                        this.itemsForDate = response.data.records
+                    })
+
+                } else {
                     this.$http.get(
-                    '//stefanbode.nl/api/agenda/read_by_familydate.php?' +
-                    'family_id=' + this.userId +
-                    '&start_date=' + this.date.getFullYear() + '-' + this.date.getMonth() + 1 + '-' + this.date.getDate()
-                ).then(response => {
-                    this.itemsForDate = response.data.records
-                })
+                        'https://stefanbode.nl/api/agenda/read_by_startdate.php?' +
+                        'user_id=' + this.userId +
+                        '&start_date=' + this.date.getFullYear() + '-' + this.date.getMonth() + 1 + '-' + this.date.getDate()
+                    ).then(response => {
+                        this.itemsForDate = response.data.records
+                    })
                 }
-                
+
             },
             deleteCalendarItem: function (itemId) {
                 1
