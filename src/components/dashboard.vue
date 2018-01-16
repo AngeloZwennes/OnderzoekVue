@@ -52,6 +52,7 @@
 <script>
     import Calendar from './calendar.vue'
     import Task from './task.vue'
+    import Calendar from './calendar/calendar.vue'
 
 export default {
   name: 'Dashboard',
