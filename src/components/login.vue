@@ -33,7 +33,7 @@ export default {
         this.openDashboard();
       } else {
         //user is not found, create user
-        this.$http.get('https://stefanbode.nl/api/user/create.php?username=' + this.user.name + '&password=test&email=' + this.user.email).then(response => {
+        this.$http.get('https://stefanbode.nl/api/user/create.php?name=' + this.user.name + '&password=test&email=' + this.user.email).then(response => {
           this.$http.get('https://stefanbode.nl/api/user/read_one.php?email='+ this.user.email).then(createdUser => {
             localStorage.setItem('dbUser',JSON.stringify(createdUser.body));
             this.openDashboard();
