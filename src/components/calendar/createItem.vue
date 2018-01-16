@@ -72,15 +72,16 @@
         },
         methods: {
             save: function () {
-                console.log('homo')
-                console.log(this.startDate)
-                console.log(this.endDate)
-                console.log(this.title)
-                console.log(this.description)
-                /*
-                    this.$http.get('http://stefanbode.nl/api/task/read.php').then(response => {
-                        console.log(this.taskList);
-                     })*/
+                this.$http.get(
+                    'https://stefanbode.nl/api/agenda/create.php?'+
+                    'start_date='+ this.startDate + 
+                    '&end_date=' + this.endDate + 
+                    '&title=' + this.title +
+                    '&description=' + this.description +
+                    '&creator=' + this.UserId + 
+                    '&creator=' + this.UserId
+                ).then(response => {
+                })
             }
         },
         created: function () {
