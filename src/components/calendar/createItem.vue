@@ -87,7 +87,7 @@
         created: function () {
             this.title = '',
             this.description = '',
-            this.UserId = JSON.parse(localStorage.getItem('user')).id
+            this.UserId = JSON.parse(localStorage.getItem('dbUser')).user_id
         },
 
     }

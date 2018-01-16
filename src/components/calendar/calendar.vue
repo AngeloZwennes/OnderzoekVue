@@ -22,6 +22,20 @@
             </div>
         </div>
         <CreateCalendarItem></CreateCalendarItem>
+        <div class="row">
+            <div v-for="item in itemsForDate" class="col-md-12">
+                <div class="card">
+                    <div class="card-block">
+                        <h4 class="card-title">{{ item.title }}</h4>
+                        <h6 class="card-subtitle mb-2 text-muted">{{ item.start_date }} - {{ item.end_date }}</h6>
+                        <p class="card-text">{{ item.title }}</p>
+                        <a href="#" class="card-link">Card link</a>
+                        <a href="#" class="card-link">Another link</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
     </div>
 </template>
 <script>
@@ -31,7 +45,9 @@
         data() {
             return {
                 date: Date,
-                viewAbleDate: String
+                viewAbleDate: String,
+                itemsForDate: Array,
+                userId: Number
             }
         },
         methods: {
@@ -52,6 +68,14 @@
         created: function () {
             this.date = new Date();
             this.viewAbleDate = this.date.toDateString();
+            this.userId = JSON.parse(localStorage.getItem('dbUser')).user_id
+            this.$http.get(
+                'https://stefanbode.nl/api/agenda/read_by_startdate.php?' +
+                'user_id=' + 1 +
+                '&start_date=' + '2017-12-13'
+            ).then(response => {
+                this.itemsForDate = response.data.records
+            })
         },
         components: {
             CreateCalendarItem
