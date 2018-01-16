@@ -13,12 +13,12 @@
                      <div class="row">
                          <div class="col-sm-6 ">
                              <div class="box1 toprow">
-                                Photo
+                                 <Photo></Photo>
                              </div>
                          </div>
                          <div class="col-sm-6" >
                              <div class="box2 toprow">
-                                 Family
+                                 <Family></Family>
                              </div>
                         </div>
                      </div>
@@ -37,7 +37,7 @@
                      <div class="row">
                          <div class="col-sm-12">
                              <div class="whitebox largebox">
-                                    <Calendar></Calendar>
+                                <Calendar></Calendar>
                              </div>
                          </div>
                      </div>
@@ -49,18 +49,17 @@
 
 <script>
   import Task from './task/task.vue'
+  import Photo from './photo/photo.vue'
   import Calendar from './calendar/calendar.vue'
+  import Family from './family/family.vue'
 
 export default {
   name: 'Dashboard',
-  data () {
-    return {
-      msg: 'No message'
-    }
-  },
   components: {
     Calendar,
-    Task
+    Task,
+    Photo,
+    Family
   },
   methods: {
     logOut: function() {

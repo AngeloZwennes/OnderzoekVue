@@ -29,9 +29,8 @@ export default {
     },
     setDbUser: function(user) {
       if(user.body.user_id != null) {
-        console.log(user.body);
-        //localStorage.setItem('dbUser',JSON.stringify(user.body));
-        //this.openDashboard();
+        localStorage.setItem('dbUser',JSON.stringify(user.body));
+        this.openDashboard();
       } else {
         //user is not found, create user
         this.$http.get('https://stefanbode.nl/api/user/create.php?username=' + this.user.name + '&password=test&email=' + this.user.email).then(response => {
@@ -48,23 +47,17 @@ export default {
         this.$http.get('http://stefanbode.nl/api/user/read_one.php?email=' + this.user.email).then(response=> {
           this.setDbUser(response);
         });
-        //this.openDashboard();
       } else {
         //velden zijn leeg
       }
-      /*if(this.user.name.length >= 0 && this.user.email.length >= 0) {
-        localStorage.setItem('user',JSON.stringify(this.user));
-        this.openDashboard();
-      }*/
     },
     checkExistingUser: function() {
-      if(localStorage.getItem('user') === null) {
+      if(localStorage.getItem('localUser') === null) {
         console.log('USER IS NULL');
       } else {
         console.log("DBUSEROPHALEN");
-        this.$http.get('http://stefanbode.nl/api/user/read_one.php?email=' + this.user.email).then(response => setDbUser(response));
-        let localUser = JSON.parse(localStorage.getItem('user'));
-        console.log(localUser);
+        this.$http.get('http://stefanbode.nl/api/user/read_one.php?email=' + this.user.email).then(response => this.setDbUser(response));
+        let localUser = JSON.parse(localStorage.getItem('localUser'));
         this.user.name = localUser.name;
         this.user.email = localUser.email;
       }
