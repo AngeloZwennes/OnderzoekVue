@@ -1,6 +1,6 @@
 <template>
     <div class="calendar-component">
-        <div id="skipbar" class="row" >
+        <div id="skipbar" class="row">
             <div class="col-sm-4">
                 <span v-on:click="previousDay" class="skipbar-button"><strong><i class="fa fa-arrow-left"></i> Yesterday</strong></span>
             </div>
@@ -12,24 +12,23 @@
             </div>
         </div>
         <div class="row">
-                <div class="col-sm-12 center">
+            <div class="col-sm-12 center">
                 <h1>Welcome</h1>
-            </div>  
             </div>
-            <div class="row">
-                <div class="col-sm-12 center">
+        </div>
+        <div class="row">
+            <div class="col-sm-12 center">
                 <h3> {{ viewAbleDate }} </h3>
-                </div>
             </div>
-            <CreateCalendarItem></CreateCalendarItem>
+        </div>
+        <CreateCalendarItem></CreateCalendarItem>
     </div>
 </template>
 <script>
-
     import CreateCalendarItem from './createItem.vue'
     export default {
         name: 'Calendar',
-        data () {
+        data() {
             return {
                 date: Date,
                 viewAbleDate: String
@@ -37,7 +36,7 @@
         },
         methods: {
             previousDay: function () {
-                this.date.setDate(this.date.getDate() -1)
+                this.date.setDate(this.date.getDate() - 1)
                 this.viewAbleDate = this.date.toDateString()
             },
             toDay: function () {
@@ -46,7 +45,7 @@
 
             },
             nextDay: function () {
-                this.date.setDate(this.date.getDate() +1)
+                this.date.setDate(this.date.getDate() + 1)
                 this.viewAbleDate = this.date.toDateString()
             },
         },
@@ -58,19 +57,23 @@
             CreateCalendarItem
         }
     }
+
 </script>
 
 <style scoped>
-    #skipbar{
+    #skipbar {
         font-size: 20px;
     }
-    .center{
+
+    .center {
         text-align: center;
     }
-    .right{
+
+    .right {
         text-align: right;
     }
-    .skipbar-button{
+
+    .skipbar-button {
         cursor: pointer;
     }
 </style>

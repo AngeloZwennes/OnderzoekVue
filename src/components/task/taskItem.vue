@@ -2,10 +2,10 @@
     <div class="create-item">
         <div class="row">
             <div class="col-sm-12">
-                <button class="btn btn-success" data-toggle="modal" data-target="#create-calendar-item"><i class="fa fa-plus-circle"></i></button>
+                <button class="btn btn-success" data-toggle="modal" data-target="#create-item"><i class="fa fa-plus-circle"></i></button>
             </div>
         </div>
-        <div id="create-calendar-item" class="modal" tabindex="-1" role="dialog">
+        <div id="create-item" class="modal" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
