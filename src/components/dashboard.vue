@@ -29,7 +29,9 @@
                              </div>
                          </div>
                          <div class="col-sm-6" >
-                             <div class="whitebox bottomrow">Task</div>
+                             <div class="whitebox bottomrow">
+                                 <Task></Task>
+                             </div>
                         </div>
                      </div>
                 </div>
@@ -49,6 +51,7 @@
 
 <script>
     import Calendar from './calendar.vue'
+    import Task from './task.vue'
 
 export default {
   name: 'Dashboard',
@@ -58,7 +61,8 @@ export default {
     }
   },
   components: {
-    Calendar
+    Calendar,
+    Task
   }
 }
 </script>
