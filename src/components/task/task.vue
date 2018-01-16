@@ -28,7 +28,8 @@ export default {
     },
     methods: {
         fetchData: function () {
-            this.$http.get('http://stefanbode.nl/api/task/read.php').then(response => {
+            this.familyId = JSON.parse(localStorage.getItem('dbUser')).familyId
+            this.$http.get('https://stefanbode.nl/api/task/read_by_family.php?family_id='+this.familyId).then(response => {
                 this.taskList = response.data.records;
              })
         },

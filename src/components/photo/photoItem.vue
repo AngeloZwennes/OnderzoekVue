@@ -2,10 +2,10 @@
     <div class="create-item">
         <div class="row">
             <div class="col-sm-12">
-                <button class="btn btn-success" data-toggle="modal" data-target="#create-photo"><i class="fa fa-plus-circle"></i></button>
+                <button class="btn btn-success" data-toggle="modal" data-target="#create-photo-item"><i class="fa fa-plus-circle"></i></button>
             </div>
         </div>
-        <div id="create-photo" class="modal" tabindex="-1" role="dialog">
+        <div id="create-photo-item" class="modal" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -42,9 +42,10 @@
         },
         methods: {
            savePhoto: function () {
-                this.$http.get('http://stefanbode.nl/api/photo/create.php?url='+this.photo+'&family_id=2').then(response => {
-
-                 })
+                this.familyId = JSON.parse(localStorage.getItem('dbUser')).familyId
+                this.$http.get('http://stefanbode.nl/api/photo/create.php?photo_url='+this.photo+'&family_id='+this.familyId).then(response => {
+                    //Niks
+                })
             }
         }
     }
