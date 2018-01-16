@@ -3,7 +3,7 @@
          <div class="navbar">
              <h2 id="logo dashboard">FamilyCollab</h2>
              <div class="icons">
-                 <a class="fa fa-cog" @click="logOut()" id="settings"></a>
+                 <a class="fa fa-cog" id="settings"></a>
                  <a class="fa fa-user" id="user"></a>
              </div>
          </div>
@@ -54,6 +54,10 @@ export default {
     return {
       msg: 'No message'
     }
+  },
+  components: {
+    Calendar,
+    Task
   },
   methods: {
     logOut: function() {
