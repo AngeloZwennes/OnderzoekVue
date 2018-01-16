@@ -48,7 +48,7 @@
 </template>
 
 <script>
-    import Calendar from './calendar.vue'
+    import Calendar from './calendar/calendar.vue'
 
 export default {
   name: 'Dashboard',
