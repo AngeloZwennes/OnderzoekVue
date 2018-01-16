@@ -4,13 +4,13 @@
          <ul class="list-group">
            <li  v-for="item in taskList" class="list-group-item clearfix">{{item.task}}
              <span class="pull-right button-group">
-                 <button type="button" class="btn btn-danger"><i class="fa fa-times" aria-hidden="true"></i></button>
+                 <button type="button" class="btn btn-danger"><i class="fa fa-times" aria-hidden="true" v-on:click="deleteTask(item.task_id)"></i></button>
                </span>
            </li>
          </ul>
 
          <!-- Button trigger modal -->
-         <CreateTaskItem></CreateTaskItem>
+        <CreateTaskItem someFunctionParent="fetchData"></CreateTaskItem>
      </div>
 </template>
 
@@ -30,11 +30,15 @@ export default {
         fetchData: function () {
             this.$http.get('http://stefanbode.nl/api/task/read.php').then(response => {
                 this.taskList = response.data.records;
-                console.log(this.taskList);
              })
+        },
+        deleteTask: function (id) {
+           this.$http.get('http://stefanbode.nl/api/task/delete.php?task_id='+id).then(response => {
+               this.fetchData();
+            })
         }
     },
-     components: {
+    components: {
         CreateTaskItem
     }
 }

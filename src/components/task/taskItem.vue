@@ -19,13 +19,13 @@
                             <div class="col-lg-12">
                                 <div class="form-group">
                                     <label for="start-date"><strong>Task name:</strong></label>
-                                    <input type="field" class="form-control" id="start-date">
+                                    <input type="field" class="form-control" id="task" v-model="task">
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" data-dismiss="modal">Save</button>
+                        <button type="button" class="btn btn-primary" v-on:click="saveTask" data-dismiss="modal">Save</button>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     </div>
                 </div>
@@ -36,16 +36,19 @@
 <script>
 
     module.exports = {
+        props: [ 'someFunctionParent' ],
         data () {
             return {
+                task: ''
             }
         },
         methods: {
+           saveTask: function () {
+                this.$http.get('http://stefanbode.nl/api/task/create.php?task='+this.task+'&family_id=2').then(response => {
 
-        },
-        created: function () {
-        },
-
+                 })
+            }
+        }
     }
 </script>
 
