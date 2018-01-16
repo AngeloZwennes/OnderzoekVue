@@ -50,7 +50,7 @@
 </template>
 
 <script>
-    import Task from './task.vue'
+    import Task from './task/task.vue'
     import Calendar from './calendar/calendar.vue'
 
 export default {

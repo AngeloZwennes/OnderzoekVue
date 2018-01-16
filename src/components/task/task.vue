@@ -10,13 +10,12 @@
          </ul>
 
          <!-- Button trigger modal -->
-         <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#addTask">
-             Add item
-         </button>
+         <CreateTaskItem></CreateTaskItem>
      </div>
 </template>
 
 <script>
+import CreateTaskItem from './taskItem.vue'
 export default {
     name: 'Task',
      data: function() {
@@ -34,6 +33,9 @@ export default {
                 console.log(this.taskList);
              })
         }
+    },
+     components: {
+        CreateTaskItem
     }
 }
 </script>
