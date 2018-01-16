@@ -3,7 +3,7 @@
          <div class="navbar">
              <h2 id="logo dashboard">FamilyCollab</h2>
              <div class="icons">
-                 <a class="fa fa-cog" id="settings"></a>
+                 <a class="fa fa-cog" id="settings" @click="logOut()"></a>
                  <a class="fa fa-user" id="user"></a>
              </div>
          </div>
@@ -48,6 +48,9 @@
 </template>
 
 <script>
+  import Task from './task/task.vue'
+  import Calendar from './calendar/calendar.vue'
+
 export default {
   name: 'Dashboard',
   data () {
