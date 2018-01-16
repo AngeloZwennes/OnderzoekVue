@@ -37,7 +37,7 @@
                      <div class="row">
                          <div class="col-sm-12">
                              <div class="whitebox largebox">
-                                 Calander
+                                 <Calendar></Calendar>
                              </div>
                          </div>
                      </div>
@@ -48,12 +48,17 @@
 </template>
 
 <script>
+    import Calendar from './calendar.vue'
+
 export default {
   name: 'Dashboard',
   data () {
     return {
       msg: 'No message'
     }
+  },
+  components: {
+    Calendar
   }
 }
 </script>
