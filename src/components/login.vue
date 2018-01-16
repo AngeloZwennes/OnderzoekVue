@@ -29,13 +29,16 @@ export default {
     },
     setDbUser: function(user) {
       if(user.body.user_id != null) {
-        localStorage.setItem('dbUser',JSON.stringify(user.body));
-        this.openDashboard();
+        console.log(user.body);
+        //localStorage.setItem('dbUser',JSON.stringify(user.body));
+        //this.openDashboard();
       } else {
         //user is not found, create user
         this.$http.get('https://stefanbode.nl/api/user/create.php?username=' + this.user.name + '&password=test&email=' + this.user.email).then(response => {
-          localStorage.setItem('dbUser',JSON.stringify(response.body));
-          this.openDashboard();
+          this.$http.get('https://stefanbode.nl/api/user/read_one.php?email='+ this.user.email).then(createdUser => {
+            localStorage.setItem('dbUser',JSON.stringify(createdUser.body));
+            this.openDashboard();
+          })
         })
       }
     },
