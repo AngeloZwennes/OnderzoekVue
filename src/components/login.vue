@@ -27,10 +27,25 @@ export default {
     openDashboard: function() {
       this.$router.push('/dashboard');
     },
+    setDbUser: function(user) {
+      if(user.body.user_id != null) {
+        localStorage.setItem('dbUser',JSON.stringify(user.body));
+        this.openDashboard();
+      } else {
+        //user is not found, create user
+        this.$http.get('https://stefanbode.nl/api/user/create.php?username=' + this.user.name + '&password=test&email=' + this.user.email).then(response => {
+          localStorage.setItem('dbUser',JSON.stringify(response.body));
+          this.openDashboard();
+        })
+      }
+    },
     login: function() {
       if(this.user.name != "" && this.user.email != "") {
-        localStorage.setItem('user',JSON.stringify(this.user));
-        this.openDashboard();
+        localStorage.setItem('localUser',JSON.stringify(this.user));
+        this.$http.get('http://stefanbode.nl/api/user/read_one.php?email=' + this.user.email).then(response=> {
+          this.setDbUser(response);
+        });
+        //this.openDashboard();
       } else {
         //velden zijn leeg
       }
@@ -43,11 +58,12 @@ export default {
       if(localStorage.getItem('user') === null) {
         console.log('USER IS NULL');
       } else {
+        console.log("DBUSEROPHALEN");
+        this.$http.get('http://stefanbode.nl/api/user/read_one.php?email=' + this.user.email).then(response => setDbUser(response));
         let localUser = JSON.parse(localStorage.getItem('user'));
         console.log(localUser);
         this.user.name = localUser.name;
         this.user.email = localUser.email;
-        this.openDashboard();
       }
     }
   },

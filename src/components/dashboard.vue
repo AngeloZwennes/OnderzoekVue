@@ -64,7 +64,7 @@ export default {
   },
   methods: {
     logOut: function() {
-      localStorage.removeItem('user');
+      localStorage.removeItem('localUser');
       this.$router.push('/');
       console.log('PUSHED');
     }
