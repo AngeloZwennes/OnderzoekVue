@@ -29,7 +29,7 @@
                              </div>
                          </div>
                          <div class="col-sm-6" >
-                             <div class="whitebox bottomrow">Task</div>
+                             <div class="whitebox bottomrow"> <Task></Task></div>
                         </div>
                      </div>
                 </div>
@@ -37,7 +37,7 @@
                      <div class="row">
                          <div class="col-sm-12">
                              <div class="whitebox largebox">
-                                 Calander
+                                    <Calendar></Calendar>
                              </div>
                          </div>
                      </div>
