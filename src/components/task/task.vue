@@ -1,6 +1,6 @@
 <template>
      <div class="task">
-        Task
+        <h3 class="my-4 text-center text-lg-left">Task<div class="float-right"><CreateTaskItem></CreateTaskItem></div></h3>
          <ul class="list-group">
            <li  v-for="item in taskList" class="list-group-item clearfix">{{item.task}}
              <span class="pull-right button-group">
@@ -10,7 +10,7 @@
          </ul>
 
          <!-- Button trigger modal -->
-        <CreateTaskItem></CreateTaskItem>
+
      </div>
 </template>
 
