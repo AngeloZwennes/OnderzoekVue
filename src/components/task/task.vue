@@ -28,7 +28,7 @@ export default {
     },
     methods: {
         fetchData: function () {
-            this.familyId = JSON.parse(localStorage.getItem('dbUser')).familyId
+            this.familyId = JSON.parse(localStorage.getItem('dbUser')).family_id;
             this.$http.get('https://stefanbode.nl/api/task/read_by_family.php?family_id='+this.familyId).then(response => {
                 this.taskList = response.data.records;
              })

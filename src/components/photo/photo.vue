@@ -30,7 +30,7 @@ export default {
     },
     methods: {
         fetchData: function () {
-            this.familyId = JSON.parse(localStorage.getItem('dbUser')).familyId
+            this.familyId = JSON.parse(localStorage.getItem('dbUser')).family_id
             this.$http.get('http://stefanbode.nl/api/photo/read_by_family.php?family_id='+this.familyId).then(response => {
                 this.photoList = response.data.records;
              })
