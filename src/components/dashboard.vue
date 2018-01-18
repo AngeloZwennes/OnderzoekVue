@@ -25,7 +25,7 @@
                     <div class="row">
                          <div class="col-sm-6 ">
                              <div class="whitebox bottomrow">
-                                Groceries
+                                <Grocery></Grocery>
                              </div>
                          </div>
                          <div class="col-sm-6" >
@@ -50,6 +50,7 @@
 <script>
   import Task from './task/task.vue'
   import Photo from './photo/photo.vue'
+  import Grocery from './grocery/grocery.vue'
   import Calendar from './calendar/calendar.vue'
   import Family from './family/family.vue'
 
@@ -59,6 +60,7 @@ export default {
     Calendar,
     Task,
     Photo,
+    Grocery,
     Family
   },
   methods: {
