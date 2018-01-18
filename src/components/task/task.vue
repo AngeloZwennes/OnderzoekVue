@@ -10,7 +10,7 @@
          </ul>
 
          <!-- Button trigger modal -->
-        <CreateTaskItem someFunctionParent="fetchData"></CreateTaskItem>
+        <CreateTaskItem></CreateTaskItem>
      </div>
 </template>
 

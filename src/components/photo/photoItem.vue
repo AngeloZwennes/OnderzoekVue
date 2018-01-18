@@ -44,7 +44,7 @@
            savePhoto: function () {
                 this.familyId = JSON.parse(localStorage.getItem('dbUser')).familyId
                 this.$http.get('http://stefanbode.nl/api/photo/create.php?photo_url='+this.photo+'&family_id='+this.familyId).then(response => {
-                    //Niks
+                    this.$parent.fetchData();
                 })
             }
         }
