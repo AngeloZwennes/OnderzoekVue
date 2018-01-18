@@ -11,11 +11,10 @@
 
 <script>
 export default {
-    name: 'Task',
+    name: 'Family',
      data: function() {
          return  {
-           familyList: [],
-           familyId: Number
+           familyList: []
          }
     },
     created: function () {
@@ -23,10 +22,14 @@ export default {
     },
     methods: {
         fetchData: function () {
-            this.familyId = JSON.parse(localStorage.getItem('dbUser')).familyId
-            this.$http.get('https://stefanbode.nl/api/user/read_by_family.php?family_id='+this.familyId).then(response => {
-                this.familyList = response.data.records;
-             })
+            this.familyId = JSON.parse(localStorage.getItem('dbUser')).family_id;
+            if(this.familyId != 0){
+                this.$http.get('https://stefanbode.nl/api/user/read_by_family.php?family_id='+this.familyId).then(response => {
+                    this.familyList = response.data.records;
+                 })
+             } else {
+                this.familyList = [];
+             }
         }
     }
 }

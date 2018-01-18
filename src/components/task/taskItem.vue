@@ -35,7 +35,6 @@
 </template>
 <script>
     module.exports = {
-        props: [ 'someFunctionParent' ],
         data () {
             return {
                 task: ''
@@ -45,7 +44,7 @@
            saveTask: function () {
                 this.familyId = JSON.parse(localStorage.getItem('dbUser')).familyId
                 this.$http.get('http://stefanbode.nl/api/task/create.php?task='+this.task+'&family_id='+this.familyId).then(response => {
-
+                    this.$parent.fetchData();
                  })
             }
         }
