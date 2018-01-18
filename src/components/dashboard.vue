@@ -3,7 +3,7 @@
          <div class="navbar">
              <h2 id="logo dashboard">FamilyCollab</h2>
              <div class="icons">
-                 <a class="fa fa-cog" id="settings" @click="logOut()"></a>
+                 <a class="fa fa-cog" id="settings" @click="goToSettings()"></a>
                  <a class="fa fa-user" id="user"></a>
              </div>
          </div>
@@ -64,6 +64,9 @@ export default {
     Family
   },
   methods: {
+    goToSettings: function() {
+      this.$router.push('/settings');
+    },
     logOut: function() {
       localStorage.removeItem('localUser');
       localStorage.removeItem('dbUser');
@@ -94,25 +97,33 @@ export default {
 }
 
 .largebox{
-    min-height:800px;
+    min-height:850px;
+    height: 850px;
+    overflow-y: scroll;
     padding:20px;
 }
 .modulesspace{
-    padding-top:40px;
+    padding-top:20px;
 }
 .bottomrow{
     min-height:600px;
+    height: 600px;
+    overflow-y: scroll;
 }
 
 .box1{
-    padding:20px;
-    color:#fff;
+    padding:0px 10px 0px 10px;
     background:#29a0d7;
+    height: 200px;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 .box2 {
-    padding: 20px;
-    color: #fff;
+    padding:0px 10px 0px 10px;
     background: #59db75;
+    height: 200px;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 .navbar {

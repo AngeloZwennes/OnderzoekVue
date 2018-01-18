@@ -1,8 +1,8 @@
 <template>
     <div class="create-item">
-        <div class="row">
+        <div class="row" style="float:right;">
             <div class="col-sm-12">
-                <button class="btn btn-success" data-toggle="modal" data-target="#create-calendar-item"><i class="fa fa-plus-circle"></i></button>
+                <button class="btn btn-success" data-toggle="modal" data-target="#create-calendar-item"><i class="fa fa-plus"></i> Add calendar item</button>
             </div>
         </div>
         <div id="create-calendar-item" class="modal" tabindex="-1" role="dialog">
@@ -79,7 +79,7 @@
                     '&title=' + this.title +
                     '&description=' + this.description +
                     '&creator=' + this.UserId + 
-                    '&creator=' + this.UserId
+                    '&user_id=' + this.UserId
                 ).then(response => {
                 })
             }

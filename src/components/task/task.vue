@@ -1,6 +1,6 @@
 <template>
      <div class="task">
-        Task
+        <h3 class="my-4 text-center text-lg-left">Task<div class="float-right"><CreateTaskItem></CreateTaskItem></div></h3>
          <ul class="list-group">
            <li  v-for="item in taskList" class="list-group-item clearfix">{{item.task}}
              <span class="pull-right button-group">
@@ -10,7 +10,7 @@
          </ul>
 
          <!-- Button trigger modal -->
-        <CreateTaskItem someFunctionParent="fetchData"></CreateTaskItem>
+
      </div>
 </template>
 
@@ -28,7 +28,7 @@ export default {
     },
     methods: {
         fetchData: function () {
-            this.familyId = JSON.parse(localStorage.getItem('dbUser')).familyId
+            this.familyId = JSON.parse(localStorage.getItem('dbUser')).family_id;
             this.$http.get('https://stefanbode.nl/api/task/read_by_family.php?family_id='+this.familyId).then(response => {
                 this.taskList = response.data.records;
              })

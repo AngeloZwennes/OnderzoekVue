@@ -53,9 +53,7 @@ export default {
     },
     checkExistingUser: function() {
       if(localStorage.getItem('localUser') === null) {
-        console.log('USER IS NULL');
       } else {
-        console.log("DBUSEROPHALEN");
         this.$http.get('http://stefanbode.nl/api/user/read_one.php?email=' + this.user.email).then(response => this.setDbUser(response));
         let localUser = JSON.parse(localStorage.getItem('localUser'));
         this.user.name = localUser.name;
